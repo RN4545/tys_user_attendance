@@ -13,6 +13,8 @@ class CustomTxtField extends GetView {
       {super.key,this.hintTextStyle, this.labelTextStyle,
         this.fillColor,
         this.suffix,
+        this.borderColor,
+        this.focusNode,
         this.textStyle,
         this.filled,
         this.inputFormatter,
@@ -36,7 +38,7 @@ class CustomTxtField extends GetView {
         this.isRequired = false});
 
   final Widget? prefix;
-
+final FocusNode? focusNode;
   final String? hintText;
   final String? labelText;
   final TextStyle? textStyle;
@@ -44,6 +46,7 @@ class CustomTxtField extends GetView {
   final TextStyle? labelTextStyle;
   final TextCapitalization? textCapitalization;
   final Widget? suffix;
+  final Color? borderColor;
 
   final TextInputType? textInputType;
   @override
@@ -70,8 +73,11 @@ class CustomTxtField extends GetView {
       child: Padding(
         padding:padding?? const EdgeInsets.symmetric(vertical: 10.0),
         child: TextField(
+maxLines: maxLines,
+
           autofillHints: autofillHints,
           onTap: onTap,
+          focusNode: focusNode,
           obscureText: obscureText ?? false,
           onChanged: onChanged,
           cursorColor: AppColor.secondaryColor,
@@ -110,9 +116,9 @@ class CustomTxtField extends GetView {
             labelStyle:labelTextStyle ?? Get.textTheme.bodySmall!
                 .copyWith(color: Colors.black, fontSize: fontSize),
             enabledBorder: border == true
-                ? const OutlineInputBorder(
+                ? OutlineInputBorder(
               borderSide: BorderSide(
-                color: Colors.grey,
+                color: borderColor?? Colors.grey,
                 width: 1.0,
               ),
               // borderRadius: BorderRadius.circular(8.0),

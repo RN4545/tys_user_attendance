@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tys_user_attendance/app/customWidget/customElevatedButton.dart';
 import 'package:tys_user_attendance/app/customWidget/customTextfield.dart';
+import 'package:tys_user_attendance/app/modules/bottom_navigation_bar_module/bottom_navigation_bar.dart';
 import 'package:tys_user_attendance/app/modules/screen_reimbursement_module/screen_reimbursement_controller.dart';
+import 'package:tys_user_attendance/app/routes/route_names.dart';
 import 'package:tys_user_attendance/app/utils/AppFont.dart';
 
 import '../../customWidget/customTxtFiledNew.dart';
@@ -12,16 +15,20 @@ class ScreenReimbursement extends GetView<ScreenReimbursementController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Reimbursement",
-          style: Get.textTheme.bodyMedium!
-              .copyWith(fontSize: font18, fontWeight: FontWeight.bold),
+    return Obx(() {
+      return Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          title: Text(
+            "Reimbursement",
+            style: Get.textTheme.bodyMedium!
+                .copyWith(fontSize: font18, fontWeight: FontWeight.bold),
+          ),
         ),
-      ),
-      body: _body(),
-    );
+        bottomNavigationBar: _submitButton(),
+        body: _body(),
+      );
+    });
   }
 
   Widget _body() {
@@ -52,6 +59,8 @@ class ScreenReimbursement extends GetView<ScreenReimbursementController> {
           ),
         ),
         CustomTxtField(
+          focusNode: controller.expenseCategoryFocus,
+          fillColor: controller.expenseCategoryColor.value,
           controller: controller.expenseCategoryCtrl,
           hintText: "Select Category",
           hintTextStyle: Get.textTheme.bodyMedium!.copyWith(
@@ -70,6 +79,8 @@ class ScreenReimbursement extends GetView<ScreenReimbursementController> {
           ),
         ),
         CustomTxtField(
+          focusNode: controller.vendorNameFocus,
+          fillColor: controller.vendorNameColor.value,
           controller: controller.vendorNameCompanyCtrl,
           hintText: "Enter Vendor",
           hintTextStyle: Get.textTheme.bodyMedium!.copyWith(
@@ -88,6 +99,8 @@ class ScreenReimbursement extends GetView<ScreenReimbursementController> {
           ),
         ),
         CustomTxtField(
+          // fillColor: controller.vendorNameColor.value,
+          // focusNode: controller.vendorNameFocus,
           // controller: controller.vendorNameCompanyCtrl,
           hintText: "Enter Vendor",
           suffix: IconButton(
@@ -108,6 +121,8 @@ class ScreenReimbursement extends GetView<ScreenReimbursementController> {
           ),
         ),
         CustomTxtField(
+          focusNode: controller.amtFocus,
+          fillColor: controller.amtColor.value,
           controller: controller.amtCtrl,
           hintText: "₹ 2000",
           prefix: Container(
@@ -146,6 +161,8 @@ class ScreenReimbursement extends GetView<ScreenReimbursementController> {
           ),
         ),
         CustomTxtField(
+          fillColor: controller.upiIdColor.value,
+          focusNode: controller.upiIdFocus,
           controller: controller.upiIdCtrl,
           hintText: "Enter upi id",
           hintTextStyle: Get.textTheme.bodyMedium!.copyWith(
@@ -167,6 +184,8 @@ class ScreenReimbursement extends GetView<ScreenReimbursementController> {
           ),
         ),
         CustomTxtField(
+          focusNode: controller.commentFocus,
+          fillColor: controller.commentColor.value,
           controller: controller.commentCtrl,
           hintText: "Write Comments",
           hintTextStyle: Get.textTheme.bodyMedium!.copyWith(
@@ -188,6 +207,7 @@ class ScreenReimbursement extends GetView<ScreenReimbursementController> {
           ),
         ),
         CustomTxtField(
+          onTap: () {},
           // controller: controller.commentCtrl,
           hintText: "",
           hintTextStyle: Get.textTheme.bodyMedium!.copyWith(
@@ -199,6 +219,23 @@ class ScreenReimbursement extends GetView<ScreenReimbursementController> {
           height: 10.0,
         ),
       ],
+    );
+  }
+
+  Widget _submitButton() {
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: CustomElevatedButton(
+        fontSize: font16,
+        onTap: () {
+          Get.back();
+          // Get.toNamed(RouteNames.leaveRequest);
+        },
+        borderRadius: BorderRadius.circular(10.0),
+        btnText: "Submit",
+        primaryColor: Colors.amber,
+        btnSize: const Size(double.infinity, 46.0),
+      ),
     );
   }
 }

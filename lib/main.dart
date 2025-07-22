@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tys_user_attendance/app/theme/app_theme.dart';
 import 'app/routes/routes.dart';
+import 'app/shared/init.dart';
 
-void main() {
+void main() async{
   runApp(const MyApp());
+  await Get.putAsync(() async => Init());
+  // Init().ini();
 }
 
 class MyApp extends StatelessWidget {
@@ -13,6 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+
       debugShowCheckedModeBanner: false,
       theme: AppColor.pickTimeTheme(),
       initialRoute: AppPages.INITIAL,
@@ -25,4 +29,5 @@ class MyApp extends StatelessWidget {
       },
     );
   }
+
 }

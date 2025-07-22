@@ -32,6 +32,7 @@ class CustomTextField extends GetView {
         this.autofillHints,
         this.maxLength,
         this.maxLines,
+        this.focusNode,
         this.obscureText,
         this.isRequired = false});
 
@@ -49,6 +50,7 @@ class CustomTextField extends GetView {
   @override
   final TextEditingController? controller;
   final bool? border;
+  final FocusNode? focusNode;
   final bool? obscureText;
   final double? fontSize;
   final EdgeInsets? padding;
@@ -70,6 +72,7 @@ class CustomTextField extends GetView {
       child: Padding(
         padding:padding?? const EdgeInsets.symmetric(vertical: 6.0),
         child: TextField(
+          focusNode: focusNode,
           autofillHints: autofillHints,
           onTap: onTap,
           obscureText: obscureText ?? false,

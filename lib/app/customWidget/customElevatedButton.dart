@@ -38,14 +38,16 @@ class CustomElevatedButton extends StatelessWidget {
         maximumSize: btnSize ??   Size(MediaQuery.of(context).size.width, 56.0),
         padding: const EdgeInsets.all(0.0),
         shape:
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
+        RoundedRectangleBorder(borderRadius: borderRadius ??BorderRadius.circular(80.0)),
       ),
       onPressed: onTap,
       child: Container(
         decoration: BoxDecoration(
+
             boxShadow: [
               BoxShadow(
-                  color: Colors.grey.shade300, spreadRadius: 0.2, blurRadius: 2.0)
+                  color: Colors.grey.shade300, spreadRadius: 0.2, blurRadius: 2.0),
+
             ],
             gradient: isDisable == true
                 ? const LinearGradient(
@@ -61,7 +63,8 @@ class CustomElevatedButton extends StatelessWidget {
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,
             ),
-            borderRadius: BorderRadius.circular(60.0)),
+            // borderRadius = borderRadius ?? BorderRadius.circular(60.0),
+            borderRadius: borderRadius ?? BorderRadius.circular(60.0)),
         child: Container(
           padding: const EdgeInsets.only(left: 8.0, right: 8.0),
           // constraints: BoxConstraints(maxWidth: btnSize!.width , minHeight: btnSize!.height),

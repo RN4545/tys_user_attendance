@@ -134,6 +134,14 @@ flutter:
     - assets/images/reimbursement.png
     - assets/images/leave_request.png
     - assets/images/holiday.png
+    - assets/images/id_card.png
+    - assets/images/bank.png
+    - assets/images/family.png
+    - assets/images/contact_phone.png
+    - assets/images/personal.png
+    - assets/images/professional.png
+    - assets/images/bell.png
+    - assets/images/switch.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
