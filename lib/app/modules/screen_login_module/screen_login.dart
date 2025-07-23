@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tys_user_attendance/app/customWidget/customElevatedButton.dart';
+import 'package:tys_user_attendance/app/modules/screen_login_module/screen_login_controller.dart';
 import 'package:tys_user_attendance/app/routes/route_names.dart';
 import 'package:tys_user_attendance/app/theme/app_theme.dart';
 import 'package:get/get.dart';
 import 'package:tys_user_attendance/app/utils/AppFont.dart';
 import '../../customWidget/customTextfield.dart';
 
-class ScreenLogin extends StatelessWidget {
+class ScreenLogin extends GetView<ScreenLoginController> {
   const ScreenLogin({super.key});
 
   @override
@@ -15,7 +16,6 @@ class ScreenLogin extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         bottomNavigationBar: _loginForm(context),
-        backgroundColor: AppColor.backGroundColor,
         body: _body(),
       ),
     );
@@ -36,21 +36,23 @@ class ScreenLogin extends StatelessWidget {
   Widget _logo() {
     return const Center(
       child: Image(
-        // height: 220.0,
-        // width: 240.0,
-        image: AssetImage('assets/images/tys_logo_new.png'),
+        height: 220.0,
+        width: 220.0,
+        image: AssetImage('assets/images/tys_new_logo.png'),
       ),
     );
   }
 
   Widget _loginForm(BuildContext context) {
-    final height = MediaQuery.sizeOf(context).height;
+    final height = MediaQuery
+        .sizeOf(context)
+        .height;
     return Container(
       height: height * 0.7,
       width: double.infinity,
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        color: Colors.yellow.shade100,
+        color: Colors.yellow.shade50,
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(40.0),
           topRight: Radius.circular(40.0),
@@ -66,6 +68,8 @@ class ScreenLogin extends StatelessWidget {
               child: Text('Username'),
             ),
             CustomTextField(
+              fontSize: font14,
+              controller: controller.emailCtrl,
               hintText: "Enter your work email",
               hintTextStyle: GoogleFonts.poppins(
                 fontSize: font14,
@@ -79,6 +83,8 @@ class ScreenLogin extends StatelessWidget {
               child: Text("Password"),
             ),
             CustomTextField(
+              fontSize: font14,
+              controller: controller.passCtrl,
               hintText: "8 digit password",
               hintTextStyle: GoogleFonts.poppins(
                 fontSize: font14,
@@ -87,17 +93,26 @@ class ScreenLogin extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 30.0),
-            CustomElevatedButton(
-              txtColor: Colors.white,
-              btnText: "Login",
-              onTap: () {
-                Get.toNamed(RouteNames.home);
-              },
-              btnSize: const Size(double.infinity, 45.0),
-              borderRadius: BorderRadius.circular(20.0),
-              fontSize: font18,
-              primaryColor: Colors.amber,
-            ),
+            Obx(() {
+              if (controller.isLoading.value) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else {
+                return CustomElevatedButton(
+                  onTap: () async {
+                    await controller.loginUser();
+                  },
+                  btnText: "Login",
+                  btnSize: const Size(double.infinity, 45.0),
+                  borderRadius: BorderRadius.circular(20.0),
+                  fontSize: font18,
+                  txtColor: Colors.white,
+                  primaryColor: Colors.amber,
+                );
+              }
+            }),
+
             const SizedBox(height: 190.0),
             _bottomSocialIcons(),
           ],

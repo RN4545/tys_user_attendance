@@ -12,4 +12,5 @@ abstract class RouteNames {
   static const listOfHolidays = '/listHoliday_screen';
   static const profile= '/profile_screen';
   static const screenIdCard= '/screen_id_card';
+  static const screenSplash= '/screen_splash';
 }

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tys_user_attendance/app/modules/screen_attendance_module/screen_attendance.dart';
+import 'package:tys_user_attendance/app/modules/screen_attendance_module/screen_attendance_controller.dart';
 import 'package:tys_user_attendance/app/modules/screen_holiday_module/screen_holiday.dart';
 import 'package:tys_user_attendance/app/modules/screen_holiday_module/screen_holiday_controller.dart';
 import 'package:tys_user_attendance/app/modules/screen_home_module/screen_home.dart';
 import 'package:tys_user_attendance/app/modules/screen_profile_module/screen_profile.dart';
 import 'package:tys_user_attendance/app/modules/screen_profile_module/screen_profile_controller.dart';
-import 'package:tys_user_attendance/app/modules/screen_reimbursement_module/screen_reimbursement.dart';
 import 'package:tys_user_attendance/app/modules/screen_resources_module/screen_resources.dart';
 import 'bottom_navigation_bar_controller.dart';
 
@@ -16,13 +16,15 @@ class MainScreen extends StatelessWidget {
   final ScreenHolidayController holidayController =
       Get.put(ScreenHolidayController());
   final ScreenProfileController profileController =
-  Get.put(ScreenProfileController());
-  final List<Widget> pages = const [
-    ScreenHome(),
-    ScreenAttendance(),
-    ScreenHoliday(),
-    ScreenResources(),
-    ScreenProfile(),
+      Get.put(ScreenProfileController());
+  final ScreenAttendanceController attendanceController =
+      Get.put(ScreenAttendanceController());
+  final List<Widget> pages = [
+    const ScreenHome(),
+    const ScreenAttendance(),
+    const ScreenHoliday(),
+    const ScreenResources(),
+    const ScreenProfile(),
   ];
 
   @override

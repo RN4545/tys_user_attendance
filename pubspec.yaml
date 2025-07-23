@@ -38,6 +38,8 @@ dependencies:
   get: ^4.7.2
   google_fonts: ^6.2.1
   get_storage:
+  http: ^1.4.0
+  shared_preferences:
   flutter_svg:
   cached_network_image:
   pull_to_refresh:
@@ -54,12 +56,12 @@ dependencies:
   firebase_messaging:
   firebase_crashlytics:
   permission_handler:
-  dio:
+
   share_plus:
   photo_view:
   jiffy:
   encrypt:
-  dio_smart_retry:
+
   circular_countdown:
   open_store:
   synchronized:
@@ -83,6 +85,7 @@ dependencies:
 #  awesome_notifications:
   flutter_displaymode:
   grouped_list:
+  percent_indicator: ^4.2.5
   flutter_typeahead:
   fast_contacts:
   flutter_easyloading:
@@ -142,6 +145,7 @@ flutter:
     - assets/images/professional.png
     - assets/images/bell.png
     - assets/images/switch.png
+    - assets/images/tys_new_logo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

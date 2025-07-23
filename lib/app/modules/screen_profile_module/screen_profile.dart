@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tys_user_attendance/app/customWidget/customOutlineButton.dart';
 import 'package:tys_user_attendance/app/customWidget/customProfile.dart';
+import 'package:tys_user_attendance/app/data/repository/auth_repo.dart';
 import 'package:tys_user_attendance/app/modules/screen_profile_module/screen_profile_controller.dart';
 import 'package:tys_user_attendance/app/routes/route_names.dart';
 import 'package:tys_user_attendance/app/utils/AppFont.dart';
@@ -280,31 +281,37 @@ class ScreenProfile extends GetView<ScreenProfileController> {
               ),
             ],
           ),
-          child: Row(
-            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Icon(
-                Icons.logout,
-                color: Color.fromRGBO(191, 152, 63, 2),
-              ),
-              const SizedBox(
-                width: 10.0,
-              ),
-              Text(
-                "Logout",
-                style: Get.textTheme.bodyMedium!.copyWith(
-                  fontSize: font12,
-                  fontWeight: FontWeight.bold,
-                  color: const Color.fromRGBO(191, 152, 63, 2),
+          child: InkWell(
+            onTap: () async{
+              await AuthRepo().logOut();
+              Get.offAllNamed(RouteNames.login);
+            },
+            child: Row(
+              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Icon(
+                  Icons.logout,
+                  color: Color.fromRGBO(191, 152, 63, 2),
                 ),
-              ),
-              const Spacer(),
-              const Icon(
-                Icons.arrow_forward_ios_outlined,
-                size: 24.0,
-                color: Color.fromRGBO(191, 152, 63, 2),
-              ),
-            ],
+                const SizedBox(
+                  width: 10.0,
+                ),
+                Text(
+                  "Logout",
+                  style: Get.textTheme.bodyMedium!.copyWith(
+                    fontSize: font12,
+                    fontWeight: FontWeight.bold,
+                    color: const Color.fromRGBO(191, 152, 63, 2),
+                  ),
+                ),
+                const Spacer(),
+                const Icon(
+                  Icons.arrow_forward_ios_outlined,
+                  size: 24.0,
+                  color: Color.fromRGBO(191, 152, 63, 2),
+                ),
+              ],
+            ),
           ),
         ),
       ],

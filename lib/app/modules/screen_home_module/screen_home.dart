@@ -15,7 +15,7 @@ class ScreenHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.backGroundColor,
+      backgroundColor: AppColor.whiteColor,
       body: _body(context),
     );
   }

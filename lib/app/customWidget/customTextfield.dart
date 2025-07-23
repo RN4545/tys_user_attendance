@@ -116,7 +116,7 @@ class CustomTextField extends GetView {
                 ? OutlineInputBorder(
               borderSide: const BorderSide(
                 color: Colors.grey,
-                width: 1.0,
+                width: 0.3,
               ),
               borderRadius: BorderRadius.circular(20.0),
             )

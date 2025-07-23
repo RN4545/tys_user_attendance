@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:in_app_notification/in_app_notification.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tys_user_attendance/app/shared/init.dart';
 import 'package:tys_user_attendance/app/theme/app_theme.dart';
+import 'app/routes/route_names.dart';
 import 'app/routes/routes.dart';
-import 'app/shared/init.dart';
 
-void main() async{
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   await Get.putAsync(() async => Init());
-  // Init().ini();
+
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -15,19 +20,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return InAppNotification(
+      child: GetMaterialApp(
 
-      debugShowCheckedModeBanner: false,
-      theme: AppColor.pickTimeTheme(),
-      initialRoute: AppPages.INITIAL,
-      getPages: AppPages.routes,
-
-      builder: (context, child) {
-        return SafeArea(
-          child: child ?? const SizedBox(),
-        );
-      },
+        debugShowCheckedModeBanner: false,
+        theme: AppColor.pickTimeTheme(),
+        initialRoute: AppPages.INITIAL,
+        getPages: AppPages.routes,
+        builder: (context, child) {
+          return SafeArea(child: child ?? const SizedBox());
+        },
+      ),
     );
   }
-
 }
+

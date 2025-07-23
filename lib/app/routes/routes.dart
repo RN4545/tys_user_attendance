@@ -16,6 +16,8 @@ import 'package:tys_user_attendance/app/modules/screen_reimbursement_module/scre
 import 'package:tys_user_attendance/app/modules/screen_resignation_module/screen_resignation_bindings.dart';
 import 'package:tys_user_attendance/app/modules/screen_resources_module/screen_resources.dart';
 import 'package:tys_user_attendance/app/modules/screen_resources_module/screen_resources_bindings.dart';
+import 'package:tys_user_attendance/app/modules/screen_splash_module/screen_splash.dart';
+import 'package:tys_user_attendance/app/modules/screen_splash_module/screen_splash_bindings.dart';
 import 'package:tys_user_attendance/app/routes/route_names.dart';
 
 import '../modules/screen_holiday_module/screen_holiday.dart';
@@ -28,7 +30,7 @@ import '../modules/screen_reimbursement_module/screen_reimbursement.dart';
 import '../modules/screen_resignation_module/screen_resignation.dart';
 
 class AppPages {
-  static const INITIAL = RouteNames.login;
+  static const INITIAL = RouteNames.splash;
 
   static final routes = [
     GetPage(
@@ -43,7 +45,7 @@ class AppPages {
     ),
     GetPage(
       name: RouteNames.attendance,
-      page: () => const ScreenAttendance(),
+      page: () =>  const ScreenAttendance(),
       binding: ScreenAttendanceBindings(),
     ),
     GetPage(
@@ -90,6 +92,16 @@ class AppPages {
       name: RouteNames.screenIdCard,
       page: () => const ScreenIdCard(),
       binding: ScreenIdCardBindings(),
+    ),
+    GetPage(
+      name: RouteNames.screenIdCard,
+      page: () => const ScreenIdCard(),
+      binding: ScreenIdCardBindings(),
+    ),
+    GetPage(
+      name: RouteNames.splash,
+      page: () =>  ScreenSplash(),
+      binding: ScreenSplashBindings(),
     ),
   ];
 }

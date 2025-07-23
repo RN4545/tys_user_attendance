@@ -57,6 +57,7 @@ class FlashToast {
         InAppNotification.show(
             child: NotificationBody(
               minHeight: 84.0,
+
               text: text,
               notificationType: "errortext",
               onTap: () {
@@ -205,6 +206,7 @@ class NotificationBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+
       margin: const EdgeInsets.fromLTRB(12.0, 20.0, 20.0, 0.0),
       padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0.0),
       decoration: BoxDecoration(
@@ -242,7 +244,7 @@ class NotificationBody extends StatelessWidget {
           // textAlign: TextAlign.start,
           overflow: TextOverflow.ellipsis,
           style: Get.textTheme.titleMedium!.copyWith(
-            fontSize: font16,
+            fontSize: font14,
             fontWeight: FontWeight.w600,
             color: textColor ?? Colors.black,
             shadows: <Shadow>[
