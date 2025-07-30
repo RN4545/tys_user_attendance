@@ -4,9 +4,9 @@ import 'package:percent_indicator/circular_percent_indicator.dart';
 
 import '../data/pojo/attendanceModel.dart';
 import '../utils/AppFont.dart';
+
 class AttendanceStatItem extends StatelessWidget {
   final AttendanceStatModel stat;
-
   const AttendanceStatItem(this.stat, {super.key});
 
   @override

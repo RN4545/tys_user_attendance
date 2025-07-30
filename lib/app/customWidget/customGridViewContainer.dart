@@ -4,9 +4,9 @@ import 'package:tys_user_attendance/app/utils/AppFont.dart';
 
 class ItemPojo {
   final String title;
-  final String subTitle;
+  final String? subTitle;
 
-  ItemPojo({required this.title, required this.subTitle});
+  ItemPojo({required this.title,  this.subTitle});
 }
 
 class CustomGridViewContainer extends StatelessWidget {
@@ -64,7 +64,7 @@ class CustomGridViewContainer extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    item.subTitle,
+                    item.subTitle ?? "",
                     style: Get.textTheme.bodyMedium!.copyWith(
                       fontSize: font14,
                       color: Colors.grey[700],

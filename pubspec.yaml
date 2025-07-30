@@ -146,6 +146,8 @@ flutter:
     - assets/images/bell.png
     - assets/images/switch.png
     - assets/images/tys_new_logo.png
+    - assets/images/regularize.png
+    - assets/images/apply_leave.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

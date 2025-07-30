@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:tys_user_attendance/app/customWidget/attendance_calender.dart';
 import 'package:tys_user_attendance/app/customWidget/customChipsMonths.dart';
 import 'package:tys_user_attendance/app/modules/screen_attendance_module/screen_attendance_controller.dart';
 import 'package:tys_user_attendance/app/theme/app_theme.dart';
@@ -17,13 +18,12 @@ class ScreenAttendance extends GetView<ScreenAttendanceController> {
     return Obx(() {
       return Scaffold(
         appBar: AppBar(
-          title: Center(
-            child: Text(
-              "Attendance",
-              style: Get.textTheme.bodyMedium!.copyWith(
-                fontWeight: FontWeight.bold,
-                fontSize: font18,
-              ),
+
+          title: Text(
+            "Attendance",
+            style: Get.textTheme.bodyMedium!.copyWith(
+              fontWeight: FontWeight.bold,
+              fontSize: font18,
             ),
           ),
           actions: [
@@ -31,9 +31,10 @@ class ScreenAttendance extends GetView<ScreenAttendanceController> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
                   decoration: BoxDecoration(
-                      border: Border.all(width: 0.7, color: Colors.amber),
-                      color: Colors.yellow.shade100,
-                      borderRadius: BorderRadius.circular(20.0)),
+                    border: Border.all(width: 0.7, color: Colors.amber),
+                    color: Colors.yellow.shade100,
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
                   child: DropdownButton<String>(
                     iconSize: 14.0,
                     isDense: true,
@@ -75,9 +76,17 @@ class ScreenAttendance extends GetView<ScreenAttendanceController> {
   Widget _body() {
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [_attendance()],
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            _attendance(),
+            const SizedBox(
+              height: 20.0,
+            ),
+            _attendanceCalender()
+          ],
+        ),
       ),
     );
   }
@@ -92,8 +101,7 @@ class ScreenAttendance extends GetView<ScreenAttendanceController> {
           selectedMonth: controller.selectedMonth.value,
           onSelected: controller.selectMonth,
         ),
-        const SizedBox(height: 10.0),
-
+        const SizedBox(height: 20.0),
         Center(
           child: Text(
             "Total",
@@ -101,9 +109,8 @@ class ScreenAttendance extends GetView<ScreenAttendanceController> {
                 .copyWith(fontSize: font14, color: Colors.black),
           ),
         ),
-
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          padding: const EdgeInsets.symmetric(horizontal: 12.0),
           child: Row(
             children: [
               _buildStatText("Days", "25/30"),
@@ -112,15 +119,16 @@ class ScreenAttendance extends GetView<ScreenAttendanceController> {
             ],
           ),
         ),
-        const SizedBox(height: 20.0),
-
+        const SizedBox(height: 30.0),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: attendanceStats.map((stat) => AttendanceStatItem(stat)).toList(),
+          children:
+              attendanceStats.map((stat) => AttendanceStatItem(stat)).toList(),
         ),
       ],
     );
   }
+
   Widget _buildStatText(String label, String value) {
     return Row(
       children: [
@@ -142,6 +150,125 @@ class ScreenAttendance extends GetView<ScreenAttendanceController> {
           value,
           style: Get.textTheme.bodyMedium!
               .copyWith(fontSize: font12, color: Colors.grey),
+        ),
+      ],
+    );
+  }
+
+  Widget _attendanceCalender() {
+    return Column(
+      children: [
+        const AttendanceCalender(
+          showHeader: true,
+        ),
+        AttendanceCalender(
+          showHeader: false,
+          actualDate: "24",
+          actualDay: "Sat",
+          inTime: "09:20",
+          inTimeColor: Colors.green,
+          outTime: "06:20",
+          totalHours: "09:00",
+          onPressed: () {
+
+          },
+          optionsLeave: controller.leavesOptions,
+          containerBoxColor: Colors.green.shade100,
+        ),
+        AttendanceCalender(
+          showHeader: false,
+          actualDate: "24",
+          actualDay: "Sat",
+          optionsLeave: controller.leavesOptions,
+          inTime: "09:20",
+          inTimeColor: Colors.green,
+          outTimeColor: Colors.red,
+          totalHoursColor: Colors.red,
+          outTime: "06:20",
+          totalHours: "09:00",
+          containerBoxColor: Colors.green.shade100,
+        ),
+        AttendanceCalender(
+          showHeader: false,
+          actualDate: "24",
+          actualDay: "Sat",
+          inTime: "09:20",
+          inTimeColor: Colors.green,
+          outTime: "06:20",
+          optionsLeave: controller.leavesOptions,
+          totalHours: "09:00",
+          containerBoxColor: Colors.green.shade100,
+        ),
+        AttendanceCalender(
+          showHeader: false,
+          actualDate: "24",
+          actualDay: "Sat",
+          inTime: "09:20",
+          outTime: "06:20",
+          optionsLeave: controller.leavesOptions,
+          inTimeColor: Colors.amber.shade300,
+          totalHours: "09:00",
+          containerBoxColor: Colors.amber.shade200,
+        ),
+        AttendanceCalender(
+          showHeader: false,
+          actualDate: "23",
+          actualDay: "Sat",
+          inTime: "09:20",
+          outTime: "06:20",
+          inTimeColor: Colors.amber.shade300,
+          totalHours: "09:00",
+          containerBoxColor: Colors.amber.shade200,
+        ),
+        AttendanceCalender(
+          showHeader: false,
+          actualDate: "22",
+          actualDay: "Sat",
+          inTime: "09:20",
+          outTime: "06:20",
+          inTimeColor: Colors.amber.shade300,
+          totalHours: "09:00",
+          containerBoxColor: Colors.amber.shade200,
+        ),
+        AttendanceCalender(
+          showHeader: false,
+          actualDate: "21",
+          actualDay: "Sat",
+          inTime: "09:20",
+          outTime: "06:20",
+          inTimeColor: Colors.pink.shade200,
+          totalHours: "09:00",
+          containerBoxColor: Colors.pink.shade100,
+        ),
+        AttendanceCalender(
+          showHeader: false,
+          actualDate: "21",
+          actualDay: "Sat",
+          inTime: "09:20",
+          outTime: "06:20",
+          inTimeColor: Colors.pink.shade200,
+          totalHours: "09:00",
+          containerBoxColor: Colors.pink.shade100,
+        ),
+        AttendanceCalender(
+          showHeader: false,
+          actualDate: "21",
+          actualDay: "Sat",
+          inTime: "09:20",
+          outTime: "06:20",
+          inTimeColor: Colors.pink.shade200,
+          totalHours: "09:00",
+          containerBoxColor: Colors.pink.shade100,
+        ),
+        AttendanceCalender(
+          showHeader: false,
+          actualDate: "21",
+          actualDay: "Sat",
+          inTime: "09:20",
+          outTime: "06:20",
+          inTimeColor: Colors.pink.shade200,
+          totalHours: "09:00",
+          containerBoxColor: Colors.pink.shade100,
         ),
       ],
     );
