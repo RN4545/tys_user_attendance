@@ -12,6 +12,8 @@ import 'package:tys_user_attendance/app/modules/screen_leave_request_module/scre
 import 'package:tys_user_attendance/app/modules/screen_leave_request_module/screen_leave_request_bindings.dart';
 import 'package:tys_user_attendance/app/modules/screen_login_module/screen_login.dart';
 import 'package:tys_user_attendance/app/modules/screen_profile_module/screen_profile_bindings.dart';
+import 'package:tys_user_attendance/app/modules/screen_regularize_module/screen_regularize.dart';
+import 'package:tys_user_attendance/app/modules/screen_regularize_module/screen_regularize_bindings.dart';
 import 'package:tys_user_attendance/app/modules/screen_reimbursement_module/screen_reimbursement_bindings.dart';
 import 'package:tys_user_attendance/app/modules/screen_resignation_module/screen_resignation_bindings.dart';
 import 'package:tys_user_attendance/app/modules/screen_resources_module/screen_resources.dart';
@@ -45,7 +47,7 @@ class AppPages {
     ),
     GetPage(
       name: RouteNames.attendance,
-      page: () =>  const ScreenAttendance(),
+      page: () => const ScreenAttendance(),
       binding: ScreenAttendanceBindings(),
     ),
     GetPage(
@@ -100,8 +102,12 @@ class AppPages {
     ),
     GetPage(
       name: RouteNames.splash,
-      page: () =>  ScreenSplash(),
+      page: () => ScreenSplash(),
       binding: ScreenSplashBindings(),
     ),
+    GetPage(
+        name: RouteNames.screenRegularize,
+        page: () => const ScreenRegularize(),
+        binding: ScreenRegularizeBindings()),
   ];
 }

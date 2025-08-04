@@ -18,7 +18,6 @@ class ScreenAttendance extends GetView<ScreenAttendanceController> {
     return Obx(() {
       return Scaffold(
         appBar: AppBar(
-
           title: Text(
             "Attendance",
             style: Get.textTheme.bodyMedium!.copyWith(
@@ -169,9 +168,7 @@ class ScreenAttendance extends GetView<ScreenAttendanceController> {
           inTimeColor: Colors.green,
           outTime: "06:20",
           totalHours: "09:00",
-          onPressed: () {
 
-          },
           optionsLeave: controller.leavesOptions,
           containerBoxColor: Colors.green.shade100,
         ),
@@ -273,5 +270,4 @@ class ScreenAttendance extends GetView<ScreenAttendanceController> {
       ],
     );
   }
-
 }

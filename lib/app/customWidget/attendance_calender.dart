@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tys_user_attendance/app/data/pojo/itemPojo.dart';
+import 'package:tys_user_attendance/app/routes/route_names.dart';
 import 'package:tys_user_attendance/app/utils/AppFont.dart';
 
 class AttendanceCalender extends StatelessWidget {
@@ -127,7 +128,12 @@ class AttendanceCalender extends StatelessWidget {
                   ),
                   PopupMenuButton<ItemPojo>(
                     icon: const Icon(Icons.more_vert, color: Colors.grey),
-                    onSelected: (ItemPojo selectedOption) {},
+                    onSelected: (ItemPojo selectedOption) {
+                      Get.log("${selectedOption.title}");
+                      if (selectedOption.title == "Regularize") {
+                        Get.toNamed(RouteNames.screenRegularize);
+                      }
+                    },
                     itemBuilder: (BuildContext context) {
                       return optionsLeave != null && optionsLeave!.isNotEmpty
                           ? optionsLeave!.map((ItemPojo option) {
