@@ -11,6 +11,8 @@ class CustomElevatedButton extends StatelessWidget {
   final String? btnText;
   final Color? primaryColor;
   final Size? btnSize;
+  final bool? showIcon;
+  final Icon? icon;
   final double? fontSize;
   final BorderRadiusGeometry? borderRadius;
   final bool? isDisable;
@@ -19,8 +21,10 @@ class CustomElevatedButton extends StatelessWidget {
   const CustomElevatedButton(
       {super.key,
         this.iconData,
+        this.icon,
         this.onTap,
         this.btnText,
+        this.showIcon =false,
         this.primaryColor,
         this.borderRadius,
         this.btnSize,

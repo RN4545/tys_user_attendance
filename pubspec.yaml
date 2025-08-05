@@ -82,15 +82,22 @@ dependencies:
   in_app_review:
   connection_notifier:
   font_awesome_flutter:
-#  awesome_notifications:
+  #  awesome_notifications:
   flutter_displaymode:
   grouped_list:
   percent_indicator: ^4.2.5
   flutter_typeahead:
   fast_contacts:
+
+
+  screenshot: ^3.0.0
+  image_gallery_saver:
+
+
+
   flutter_easyloading:
   flutter_download_manager:
-#  file_picker:
+  #  file_picker:
   table_calendar:
   flutter_custom_clippers:
 
@@ -148,6 +155,7 @@ flutter:
     - assets/images/tys_new_logo.png
     - assets/images/regularize.png
     - assets/images/apply_leave.png
+    - assets/images/tys_qr_img.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

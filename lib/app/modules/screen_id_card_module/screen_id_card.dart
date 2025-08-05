@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:screenshot/screenshot.dart';
+import 'package:tys_user_attendance/app/customWidget/customBuildDetailRow.dart';
+import 'package:tys_user_attendance/app/customWidget/customElevatedButton.dart';
+import 'package:tys_user_attendance/app/customWidget/customIdCardBack.dart';
+import 'package:tys_user_attendance/app/customWidget/customIdCardFront.dart';
 import 'package:tys_user_attendance/app/customWidget/customProfile.dart';
 import 'package:tys_user_attendance/app/modules/screen_id_card_module/screen_id_card_controller.dart';
 import 'package:tys_user_attendance/app/utils/AppFont.dart';
@@ -11,6 +16,8 @@ class ScreenIdCard extends GetView<ScreenIdCardController> {
 
   @override
   Widget build(BuildContext context) {
+    // final frontKey = GlobalKey();
+    // final backKey = GlobalKey();
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -20,17 +27,22 @@ class ScreenIdCard extends GetView<ScreenIdCardController> {
         ),
       ),
       body: _body(),
+      bottomNavigationBar: _downloadBtns(context),
     );
   }
 
   Widget _body() {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(10.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             _profileFront(),
+            const SizedBox(
+              height: 20.0,
+            ),
+            _profileBack(),
           ],
         ),
       ),
@@ -38,63 +50,75 @@ class ScreenIdCard extends GetView<ScreenIdCardController> {
   }
 
   Widget _profileFront() {
-    return Center(
-      child: Container(
-        padding: const EdgeInsets.all(16.0),
-        decoration: BoxDecoration(
-          boxShadow: const [
-            BoxShadow(
-                color: Colors.grey,
-                blurRadius: 1,
-                spreadRadius: 1,
-                offset: Offset(0.2, 0.2))
-          ],
-          borderRadius: BorderRadius.circular(10.0),
-          color: Colors.white,
+    return const Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+         CustomIdCardFront(
+          imageString: "assets/images/tys_new_logo.png",
         ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const CustomProfile(
-              employeeName: "Jack Brown",
-              employeePosition: "UI/UX Intern",
-            ),
-            const SizedBox(height: 20.0),
-            _buildDetailRow("Employee ID", "1001"),
-            _buildDetailRow("Date of Birth", "29.04.2005"),
-            _buildDetailRow("Blood Group", "B+"),
-            _buildDetailRow("Phone Number", "9876543210"),
-            _buildDetailRow("Email", "abc@gmail.com"),
-          ],
-        ),
-      ),
+      ],
     );
   }
 
-  Widget _buildDetailRow(String label, String value) {
-    return Row(
+  Widget _profileBack() {
+    return  Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Expanded(
-          flex: 2,
-          child: Text(
-            "$label",
-            style: Get.textTheme.bodyMedium!.copyWith(
-              fontSize: font14,
-              color: Colors.black54
-            ),
-          ),
-        ),
-        Expanded(
-          flex: 3,
-          child: Text(
-            ":  ${value}",
-
-            style: Get.textTheme.bodyMedium!.copyWith(
-              fontSize: font14,
-            ),
+        Screenshot(
+          controller : controller.screenshotController,
+          child: const CustomIdCardBack(
+            emergencyContact: "Emergency Contact:",
+            contactNo: "9876543210",
+            addressLabel: "Address",
+            detailAddress:
+                "S-58, 2'nd Floor,Haware Fantasia Business Park,Sector 30A,Vashi,Near Inorbit Mall,Navi Mumbai -400703",
+            imageString: "assets/images/tys_new_logo.png",
           ),
         ),
       ],
+    );
+  }
+
+  Widget _downloadBtns(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 30.0, left: 30.0),
+      child: Row(
+        children: [
+          Expanded(
+            child: CustomElevatedButton(
+              iconData: const Icon(
+                Icons.file_download_outlined,
+                color: Colors.black,
+              ),
+              onTap: ()  {
+               controller.captureAndSave(context);
+              },
+              primaryColor: Colors.amber.shade200,
+              btnText: "",
+              btnSize: Size(MediaQuery.of(context).size.width * 0.3, 40.0),
+            ),
+          ),
+          const SizedBox(
+            width: 50.0,
+          ),
+          Expanded(
+            child: CustomElevatedButton(
+              iconData: const Icon(
+                Icons.print,
+                color: Colors.black,
+              ),
+              onTap: () {},
+              btnText: "",
+              primaryColor: Colors.amber.shade200,
+              btnSize: Size(MediaQuery.of(context).size.width * 0.3, 40.0),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

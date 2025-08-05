@@ -8,15 +8,18 @@ plugins {
 android {
     namespace = "com.example.tys_user_attendance"
     compileSdk = 34
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = "26.1.10909125"
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8
+        //actual by default
+//        jvmTarget = JavaVersion.VERSION_17
+        jvmTarget = "17"
+
     }
 
     defaultConfig {
