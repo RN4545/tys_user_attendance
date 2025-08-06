@@ -35,15 +35,18 @@ class ScreenIdCard extends GetView<ScreenIdCardController> {
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.all(10.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            _profileFront(),
-            const SizedBox(
-              height: 20.0,
-            ),
-            _profileBack(),
-          ],
+        child: Screenshot(
+          controller: controller.screenshotController,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              _profileFront(),
+              const SizedBox(
+                height: 20.0,
+              ),
+              _profileBack(),
+            ],
+          ),
         ),
       ),
     );
@@ -63,21 +66,18 @@ class ScreenIdCard extends GetView<ScreenIdCardController> {
   }
 
   Widget _profileBack() {
-    return  Column(
+    return  const Column(
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Screenshot(
-          controller : controller.screenshotController,
-          child: const CustomIdCardBack(
-            emergencyContact: "Emergency Contact:",
-            contactNo: "9876543210",
-            addressLabel: "Address",
-            detailAddress:
-                "S-58, 2'nd Floor,Haware Fantasia Business Park,Sector 30A,Vashi,Near Inorbit Mall,Navi Mumbai -400703",
-            imageString: "assets/images/tys_new_logo.png",
-          ),
+         CustomIdCardBack(
+          emergencyContact: "Emergency Contact:",
+          contactNo: "9876543210",
+          addressLabel: "Address",
+          detailAddress:
+              "S-58, 2'nd Floor,Haware Fantasia Business Park,Sector 30A,Vashi,Near Inorbit Mall,Navi Mumbai -400703",
+          imageString: "assets/images/tys_new_logo.png",
         ),
       ],
     );

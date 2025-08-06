@@ -10,7 +10,6 @@ import 'package:screenshot/screenshot.dart';
 class ScreenIdCardController extends GetxController {
   final ScreenshotController screenshotController = ScreenshotController();
 
-  /// Request permission based on Android version
   Future<bool> requestPermission(BuildContext context) async {
     if (Platform.isAndroid) {
       try {
@@ -18,15 +17,15 @@ class ScreenIdCardController extends GetxController {
         AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
         int sdkInt = androidInfo.version.sdkInt;
 
-        print("Android SDK version: $sdkInt");
+        Get.log("Android SDK version: $sdkInt");
 
         if (sdkInt >= 33) { // Android 13+
           var photosPermission = await Permission.photos.status;
-          print("Photos permission status: $photosPermission");
+          Get.log("Photos permission status: $photosPermission");
 
           if (photosPermission.isDenied) {
             photosPermission = await Permission.photos.request();
-            print("Photos permission after request: $photosPermission");
+            Get.log("Photos permission after request: $photosPermission");
           }
 
           if (photosPermission.isGranted) {
@@ -37,11 +36,11 @@ class ScreenIdCardController extends GetxController {
           }
         } else {
           var storagePermission = await Permission.storage.status;
-          print("Storage permission status: $storagePermission");
+          Get.log("Storage permission status: $storagePermission");
 
           if (storagePermission.isDenied) {
             storagePermission = await Permission.storage.request();
-            print("Storage permission after request: $storagePermission");
+            Get.log("Storage permission after request: $storagePermission");
           }
 
           if (storagePermission.isGranted) {
@@ -54,7 +53,7 @@ class ScreenIdCardController extends GetxController {
           }
         }
       } catch (e) {
-        print("Error checking permissions: $e");
+        Get.log("Error checking permissions: $e");
         return false;
       }
     } else if (Platform.isIOS) {
@@ -89,18 +88,18 @@ class ScreenIdCardController extends GetxController {
           quality: 100,
         );
 
-        print("Image saved: $result");
+        Get.log("Image saved: $result");
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text("Screenshot saved to gallery.")),
         );
       } else {
-        print("Capture failed");
+        Get.log("Capture failed");
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text("Failed to capture image.")),
         );
       }
     } catch (e) {
-      print("Error: $e");
+      Get.log("Error: $e");
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text("Error saving image: $e")),
       );
