@@ -14,4 +14,5 @@ abstract class RouteNames {
   static const screenIdCard= '/screen_id_card';
   static const screenSplash= '/screen_splash';
   static const screenRegularize = '/screen_regularize';
+  static const screenContactInfo = '/screen_contact_info';
 }

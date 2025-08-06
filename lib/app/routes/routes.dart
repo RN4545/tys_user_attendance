@@ -4,6 +4,8 @@ import 'package:tys_user_attendance/app/modules/screen_apply_leave_module/screen
 import 'package:tys_user_attendance/app/modules/screen_apply_leave_module/screen_apply_leave_bindings.dart';
 import 'package:tys_user_attendance/app/modules/screen_attendance_module/screen_attendance.dart';
 import 'package:tys_user_attendance/app/modules/screen_attendance_module/screen_attendance_bindings.dart';
+import 'package:tys_user_attendance/app/modules/screen_contact_information/screen_contact_information.dart';
+import 'package:tys_user_attendance/app/modules/screen_contact_information/screen_contact_information_bindings.dart';
 import 'package:tys_user_attendance/app/modules/screen_holiday_module/screen_holiday_bindings.dart';
 import 'package:tys_user_attendance/app/modules/screen_home_module/screen_home.dart';
 import 'package:tys_user_attendance/app/modules/screen_id_card_module/screen_id_card.dart';
@@ -109,5 +111,9 @@ class AppPages {
         name: RouteNames.screenRegularize,
         page: () => const ScreenRegularize(),
         binding: ScreenRegularizeBindings()),
+    GetPage(
+        name: RouteNames.screenContactInfo,
+        page: () => const ScreenContactInformation(),
+        binding: ScreenContactInformationBindings())
   ];
 }

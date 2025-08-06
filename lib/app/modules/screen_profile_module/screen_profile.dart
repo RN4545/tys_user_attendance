@@ -96,9 +96,13 @@ class ScreenProfile extends GetView<ScreenProfileController> {
                 Init.instance.selectedTitle.value = item.title ?? "";
                 Get.log(
                     "Selected value : ${Init.instance.selectedTitle.value}");
-                if (Init.instance.selectedTitle.value == "Id Card") {
-                  Get.toNamed(RouteNames.screenIdCard);
-                }
+
+                controller.routeReDirect();
+                // if (Init.instance.selectedTitle.value == "Id Card") {
+                //   Get.toNamed(RouteNames.screenIdCard);
+                // } else if (Init.instance.selectedTitle.value == "Contact") {
+                //   Get.toNamed(RouteNames.screenContactInfo);
+                // }
               },
               child: Container(
                 padding: const EdgeInsets.all(12.0), // Reduced padding
@@ -282,7 +286,7 @@ class ScreenProfile extends GetView<ScreenProfileController> {
             ],
           ),
           child: InkWell(
-            onTap: () async{
+            onTap: () async {
               await AuthRepo().logOut();
               Get.offAllNamed(RouteNames.login);
             },

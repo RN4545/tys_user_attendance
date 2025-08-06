@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tys_user_attendance/app/routes/route_names.dart';
+import 'package:tys_user_attendance/app/utils/AppFont.dart';
 import '../../data/pojo/itemPojo.dart';
+import '../../shared/init.dart';
 
 class ScreenProfileController extends GetxController {
   var employeeDetails = <ItemPojo>[].obs;
@@ -8,6 +11,7 @@ class ScreenProfileController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+
     employeeDetails.add(
       ItemPojo(imageString: 'assets/images/id_card.png', title: "Id Card"),
     );
@@ -28,7 +32,25 @@ class ScreenProfileController extends GetxController {
     employeeDetails.add(
       ItemPojo(imageString: 'assets/images/family.png', title: "Family"),
     );
+
   }
 
-
+  void routeReDirect() {
+    switch (Init.instance.selectedTitle.value) {
+      case "Id Card":
+        Get.toNamed(RouteNames.screenIdCard);
+        break;
+      case "Contact":
+        Get.toNamed(RouteNames.screenContactInfo);
+        break;
+      default:
+        Center(
+          child: Text(
+            "Routes Not Found",
+            style: Get.textTheme.bodyMedium!
+                .copyWith(fontWeight: FontWeight.bold, fontSize: font22),
+          ),
+        );
+    }
+  }
 }

@@ -156,6 +156,8 @@ flutter:
     - assets/images/regularize.png
     - assets/images/apply_leave.png
     - assets/images/tys_qr_img.png
+    - assets/images/profile_icon.png
+    - assets/images/edit_icon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
