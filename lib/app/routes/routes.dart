@@ -4,6 +4,7 @@ import 'package:tys_user_attendance/app/modules/screen_apply_leave_module/screen
 import 'package:tys_user_attendance/app/modules/screen_apply_leave_module/screen_apply_leave_bindings.dart';
 import 'package:tys_user_attendance/app/modules/screen_attendance_module/screen_attendance.dart';
 import 'package:tys_user_attendance/app/modules/screen_attendance_module/screen_attendance_bindings.dart';
+import 'package:tys_user_attendance/app/modules/screen_contact_info_edit/screen_contact_info_edit_controller.dart';
 import 'package:tys_user_attendance/app/modules/screen_contact_information/screen_contact_information.dart';
 import 'package:tys_user_attendance/app/modules/screen_contact_information/screen_contact_information_bindings.dart';
 import 'package:tys_user_attendance/app/modules/screen_holiday_module/screen_holiday_bindings.dart';
@@ -24,6 +25,8 @@ import 'package:tys_user_attendance/app/modules/screen_splash_module/screen_spla
 import 'package:tys_user_attendance/app/modules/screen_splash_module/screen_splash_bindings.dart';
 import 'package:tys_user_attendance/app/routes/route_names.dart';
 
+import '../modules/screen_contact_info_edit/screen_contact_info_edit.dart';
+import '../modules/screen_contact_info_edit/screen_contact_info_edit_bindings.dart';
 import '../modules/screen_holiday_module/screen_holiday.dart';
 import '../modules/screen_home_module/screen_home_bindings.dart';
 import '../modules/screen_leave_balance_module/screen_leave_balance.dart';
@@ -114,6 +117,10 @@ class AppPages {
     GetPage(
         name: RouteNames.screenContactInfo,
         page: () => const ScreenContactInformation(),
-        binding: ScreenContactInformationBindings())
+        binding: ScreenContactInformationBindings()),
+    GetPage(
+        name: RouteNames.screenContactInfoEdit,
+        page: () => const ScreenContactInfoEdit(),
+        binding: ScreenContactInfoEditBindings())
   ];
 }

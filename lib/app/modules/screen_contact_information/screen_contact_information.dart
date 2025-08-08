@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tys_user_attendance/app/routes/route_names.dart';
 import 'package:tys_user_attendance/app/shared/init.dart';
 import 'package:tys_user_attendance/app/utils/AppFont.dart';
 
@@ -31,7 +32,6 @@ class ScreenContactInformation extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           _myAccount(),
-
         ],
       ),
     );
@@ -105,15 +105,23 @@ class ScreenContactInformation extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    "jackbrown@gmail.com",
-                    style: Get.textTheme.bodyMedium!.copyWith(
-                        fontSize: font12, fontWeight: FontWeight.bold),
-                  ),
-                  Image.asset(
-                    "assets/images/edit_icon.png",
-                    height: 20.0,
-                    width: 20.0,
+                  Obx(() {
+                    return Text(
+                      // "jackbrown@gmail.com",
+                      Init.instance.emailContact.value,
+                      style: Get.textTheme.bodyMedium!.copyWith(
+                          fontSize: font12, fontWeight: FontWeight.bold),
+                    );
+                  }),
+                  InkWell(
+                    onTap: () {
+                      Get.toNamed(RouteNames.screenContactInfoEdit);
+                    },
+                    child: Image.asset(
+                      "assets/images/edit_icon.png",
+                      height: 20.0,
+                      width: 20.0,
+                    ),
                   )
                 ],
               ),
@@ -132,15 +140,22 @@ class ScreenContactInformation extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    "+91 9876543210",
-                    style: Get.textTheme.bodyMedium!.copyWith(
-                        fontSize: font12, fontWeight: FontWeight.bold),
-                  ),
-                  Image.asset(
-                    "assets/images/edit_icon.png",
-                    height: 20.0,
-                    width: 20.0,
+                  Obx(() {
+                    return Text(
+                      Init.instance.mobileContact.value,
+                      style: Get.textTheme.bodyMedium!.copyWith(
+                          fontSize: font12, fontWeight: FontWeight.bold),
+                    );
+                  }),
+                  InkWell(
+                    onTap: () {
+                      Get.toNamed(RouteNames.screenContactInfoEdit);
+                    },
+                    child: Image.asset(
+                      "assets/images/edit_icon.png",
+                      height: 20.0,
+                      width: 20.0,
+                    ),
                   )
                 ],
               ),

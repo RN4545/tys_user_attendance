@@ -10,35 +10,37 @@ typedef TagButtonPressedCallBack = void Function(String key);
 
 class CustomTxtField extends GetView {
   const CustomTxtField(
-      {super.key,this.hintTextStyle, this.labelTextStyle,
-        this.fillColor,
-        this.suffix,
-        this.borderColor,
-        this.focusNode,
-        this.textStyle,
-        this.filled,
-        this.inputFormatter,
-        this.hintText,
-        this.prefix,
-        this.textInputType,
-        this.labelText,
-        this.onChanged,
-        this.textCapitalization,
-        this.controller,
-        this.border = true,
-        this.fontSize = font18,
-        this.padding,
-        this.readOnly = false,
-        this.onTap,
-        this.iconData,
-        this.autofillHints,
-        this.maxLength,
-        this.maxLines,
-        this.obscureText,
-        this.isRequired = false});
+      {super.key,
+      this.hintTextStyle,
+      this.labelTextStyle,
+      this.fillColor,
+      this.suffix,
+      this.borderColor,
+      this.focusNode,
+      this.textStyle,
+      this.filled,
+      this.inputFormatter,
+      this.hintText,
+      this.prefix,
+      this.textInputType,
+      this.labelText,
+      this.onChanged,
+      this.textCapitalization,
+      this.controller,
+      this.border = true,
+      this.fontSize = font18,
+      this.padding,
+      this.readOnly = false,
+      this.onTap,
+      this.iconData,
+      this.autofillHints,
+      this.maxLength,
+      this.maxLines,
+      this.obscureText,
+      this.isRequired = false});
 
   final Widget? prefix;
-final FocusNode? focusNode;
+  final FocusNode? focusNode;
   final String? hintText;
   final String? labelText;
   final TextStyle? textStyle;
@@ -71,10 +73,10 @@ final FocusNode? focusNode;
   Widget build(BuildContext context) {
     return AutofillGroup(
       child: Padding(
-        padding:padding?? const EdgeInsets.symmetric(vertical: 10.0),
-        child: TextField(
-maxLines: maxLines,
 
+        padding: padding ?? const EdgeInsets.symmetric(vertical: 10.0),
+        child: TextField(
+          maxLines: maxLines,
           autofillHints: autofillHints,
           onTap: onTap,
           focusNode: focusNode,
@@ -82,8 +84,10 @@ maxLines: maxLines,
           onChanged: onChanged,
           cursorColor: AppColor.secondaryColor,
           style: textStyle ??
-              Get.textTheme.bodyMedium!
-                  .copyWith(color: Colors.black, fontSize: fontSize,fontWeight: FontWeight.bold),
+              Get.textTheme.bodyMedium!.copyWith(
+                  color: Colors.black,
+                  fontSize: fontSize,
+                  fontWeight: FontWeight.bold),
           keyboardType: textInputType,
           textCapitalization: textCapitalization ?? TextCapitalization.none,
           textInputAction: TextInputAction.next,
@@ -93,15 +97,16 @@ maxLines: maxLines,
           maxLength: maxLength,
           decoration: InputDecoration(
             contentPadding: padding ??
-                const EdgeInsets.only(left: 18.0, top: 10.0, bottom: 10.0, right: 18.0),
+                const EdgeInsets.only(
+                    left: 18.0, top: 10.0, bottom: 10.0, right: 18.0),
             prefixIcon: prefix,
             suffixIcon: iconData != null
                 ? Icon(
-              iconData,
-              color: Colors.grey,
-            )
+                    iconData,
+                    color: Colors.grey,
+                  )
                 : suffix,
-            hintText: hintText??"".tr,
+            hintText: hintText ?? "".tr,
             labelText: labelText.toString() == "" || labelText == null
                 ? null
                 : labelText!.tr,
@@ -111,27 +116,29 @@ maxLines: maxLines,
             helperText: isRequired == true ? "* ${"required"}" : null,
             helperStyle: Get.textTheme.bodySmall!
                 .copyWith(color: Colors.red, fontSize: font16),
-            hintStyle: hintTextStyle ??  Get.textTheme.bodySmall!.copyWith(
-                color: Colors.grey.withOpacity(0.9), fontSize: fontSize),
-            labelStyle:labelTextStyle ?? Get.textTheme.bodySmall!
-                .copyWith(color: Colors.black, fontSize: fontSize),
+            hintStyle: hintTextStyle ??
+                Get.textTheme.bodySmall!.copyWith(
+                    color: Colors.grey.withOpacity(0.9), fontSize: fontSize),
+            labelStyle: labelTextStyle ??
+                Get.textTheme.bodySmall!
+                    .copyWith(color: Colors.black, fontSize: fontSize),
             enabledBorder: border == true
                 ? OutlineInputBorder(
-              borderSide: BorderSide(
-                color: borderColor?? Colors.grey,
-                width: 1.0,
-              ),
-              // borderRadius: BorderRadius.circular(8.0),
-            )
+                    borderSide: BorderSide(
+                      color: borderColor ?? Colors.grey,
+                      width: 1.0,
+                    ),
+                    // borderRadius: BorderRadius.circular(8.0),
+                  )
                 : null,
             focusedBorder: border == true
                 ? OutlineInputBorder(
-              borderSide: const BorderSide(
-                color: Colors.grey,
-                width: 1.0,
-              ),
-              borderRadius: BorderRadius.circular(8.0),
-            )
+                    borderSide: const BorderSide(
+                      color: Colors.grey,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(8.0),
+                  )
                 : null,
           ),
         ),
@@ -159,7 +166,7 @@ class MaskedTextInputFormatter extends TextInputFormatter {
             mask[newValue.text.length - 1] == separator) {
           return TextEditingValue(
             text:
-            '${oldValue.text}$separator${newValue.text.substring(newValue.text.length - 1)}',
+                '${oldValue.text}$separator${newValue.text.substring(newValue.text.length - 1)}',
             selection: TextSelection.collapsed(
               offset: newValue.selection.end + 1,
             ),
