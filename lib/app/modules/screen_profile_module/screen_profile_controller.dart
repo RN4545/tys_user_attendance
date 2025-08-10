@@ -32,7 +32,6 @@ class ScreenProfileController extends GetxController {
     employeeDetails.add(
       ItemPojo(imageString: 'assets/images/family.png', title: "Family"),
     );
-
   }
 
   void routeReDirect() {
@@ -42,6 +41,9 @@ class ScreenProfileController extends GetxController {
         break;
       case "Contact":
         Get.toNamed(RouteNames.screenContactInfo);
+        break;
+      case "Professional":
+        Get.toNamed(RouteNames.screenProfessionalInfo);
         break;
       default:
         Center(

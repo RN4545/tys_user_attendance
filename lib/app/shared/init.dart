@@ -6,4 +6,9 @@ class Init extends GetxService {
   var selectedTitle = ''.obs;
   var emailContact = ''.obs;
   var mobileContact = ''.obs;
+  var designationName = ''.obs;
+  var totalExp = ''.obs;
+  var skillName = ''.obs;
+  var joinDate = ''.obs;
+  var expInTYS = ''.obs;
 }

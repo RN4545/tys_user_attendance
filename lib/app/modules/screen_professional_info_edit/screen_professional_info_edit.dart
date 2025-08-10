@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tys_user_attendance/app/customWidget/customElevatedButton.dart';
-import 'package:tys_user_attendance/app/modules/screen_contact_info_edit/screen_contact_info_edit_controller.dart';
-import 'package:tys_user_attendance/app/shared/init.dart';
+import 'package:tys_user_attendance/app/modules/screen_professional_info_edit/screen_professional_info_edit_controller.dart';
 import 'package:tys_user_attendance/app/utils/AppFont.dart';
 
-import '../../routes/route_names.dart';
+import '../../shared/init.dart';
 
-class ScreenContactInfoEdit extends GetView<ScreenContactInfoEditController> {
-  const ScreenContactInfoEdit({super.key});
+class ScreenProfessionalInfoEdit
+    extends GetView<ScreenProfessionalInfoEditController> {
+  const ScreenProfessionalInfoEdit({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +20,6 @@ class ScreenContactInfoEdit extends GetView<ScreenContactInfoEditController> {
         ),
       ),
       body: _body(),
-      bottomNavigationBar: _submitBtn(),
     );
   }
 
@@ -29,12 +27,7 @@ class ScreenContactInfoEdit extends GetView<ScreenContactInfoEditController> {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _editThings(),
-        ],
+        children: [_editThings()],
       ),
     );
   }
@@ -46,68 +39,62 @@ class ScreenContactInfoEdit extends GetView<ScreenContactInfoEditController> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Email",
+          "Designation",
           style: Get.textTheme.bodyMedium!
               .copyWith(fontSize: font12, color: Colors.grey),
+        ),
+        const SizedBox(
+          height: 4.0,
         ),
         TextFormField(
           decoration: InputDecoration(
             isDense: true,
             hintStyle: Get.textTheme.bodyMedium!
                 .copyWith(fontSize: font12, color: Colors.grey),
-            hintText: "jackbrown@gmail.com",
+            hintText: "UI/UX Intern",
             contentPadding: EdgeInsets.zero,
             border: UnderlineInputBorder(
               borderSide: BorderSide(color: controller.borderColor.value),
             ),
           ),
-          controller: controller.emailCtrl,
+          controller: controller.designationCtrl,
           onChanged: (value) {
-            Init.instance.emailContact.value = value;
+            Init.instance.designationName.value = value;
           },
         ),
         const SizedBox(
           height: 26.0,
         ),
         Text(
-          "Phone Number",
+          "Total Experience",
           style: Get.textTheme.bodyMedium!
               .copyWith(fontSize: font12, color: Colors.grey),
+        ),
+        const SizedBox(
+          height: 4.0,
         ),
         TextFormField(
           decoration: InputDecoration(
             isDense: true,
-            hintText: "9999912345",
             hintStyle: Get.textTheme.bodyMedium!
                 .copyWith(fontSize: font12, color: Colors.grey),
+            hintText: "0 Years 0 Months",
             contentPadding: EdgeInsets.zero,
             border: UnderlineInputBorder(
               borderSide: BorderSide(color: controller.borderColor.value),
             ),
           ),
-          controller: controller.mobileContactCtrl,
+          controller: controller.totalExpCtrl,
           onChanged: (value) {
-            Init.instance.mobileContact.value = value;
+            Init.instance.totalExp.value = value;
           },
         ),
-      ],
-    );
-  }
+        const SizedBox(
+          height: 26.0,
+        ),
 
-  Widget _submitBtn() {
-    return Padding(
-      padding: const EdgeInsets.all(22.0),
-      child: CustomElevatedButton(
-        onTap: () {
-          Get.back();
-        },
-        btnText: "Submit",
-        btnSize: const Size(double.infinity, 44.0),
-        primaryColor: Colors.amber,
-        txtColor: Colors.white,
-        fontSize: font18,
-        borderRadius: BorderRadius.circular(10.0),
-      ),
+
+      ],
     );
   }
 }

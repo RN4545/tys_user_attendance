@@ -14,6 +14,8 @@ import 'package:tys_user_attendance/app/modules/screen_id_card_module/screen_id_
 import 'package:tys_user_attendance/app/modules/screen_leave_request_module/screen_leave_request.dart';
 import 'package:tys_user_attendance/app/modules/screen_leave_request_module/screen_leave_request_bindings.dart';
 import 'package:tys_user_attendance/app/modules/screen_login_module/screen_login.dart';
+import 'package:tys_user_attendance/app/modules/screen_professional_info/screen_professional_info_bindigs.dart';
+import 'package:tys_user_attendance/app/modules/screen_professional_info_edit/screen_professional_info_edit.dart';
 import 'package:tys_user_attendance/app/modules/screen_profile_module/screen_profile_bindings.dart';
 import 'package:tys_user_attendance/app/modules/screen_regularize_module/screen_regularize.dart';
 import 'package:tys_user_attendance/app/modules/screen_regularize_module/screen_regularize_bindings.dart';
@@ -32,6 +34,8 @@ import '../modules/screen_home_module/screen_home_bindings.dart';
 import '../modules/screen_leave_balance_module/screen_leave_balance.dart';
 import '../modules/screen_leave_balance_module/screen_leave_balance_bindings.dart';
 import '../modules/screen_login_module/screen_login_bindings.dart';
+import '../modules/screen_professional_info/screen_professional_info.dart';
+import '../modules/screen_professional_info_edit/screen_professional_info_edit_bindings.dart';
 import '../modules/screen_profile_module/screen_profile.dart';
 import '../modules/screen_reimbursement_module/screen_reimbursement.dart';
 import '../modules/screen_resignation_module/screen_resignation.dart';
@@ -121,6 +125,14 @@ class AppPages {
     GetPage(
         name: RouteNames.screenContactInfoEdit,
         page: () => const ScreenContactInfoEdit(),
-        binding: ScreenContactInfoEditBindings())
+        binding: ScreenContactInfoEditBindings()),
+    GetPage(
+        name: RouteNames.screenProfessionalInfo,
+        page: () => const ScreenProfessionalInfo(),
+        binding: ScreenProfessionalInfoBindings()),
+    GetPage(
+        name: RouteNames.screenProfessionalInfoEdit,
+        page: () => const ScreenProfessionalInfoEdit(),
+        binding: ScreenProfessionalInfoEditBindings()),
   ];
 }
