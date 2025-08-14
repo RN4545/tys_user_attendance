@@ -5,8 +5,8 @@ import 'package:tys_user_attendance/app/utils/AppFont.dart';
 import '../../routes/route_names.dart';
 import '../../shared/init.dart';
 
-class ScreenProfessionalInfo extends StatelessWidget {
-  const ScreenProfessionalInfo({super.key});
+class ScreenPersonalInfo extends StatelessWidget {
+  const ScreenPersonalInfo({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,22 +19,18 @@ class ScreenProfessionalInfo extends StatelessWidget {
         ),
       ),
       body: _body(),
-      bottomNavigationBar: _bottomSocialIcons(),
     );
   }
-
-  Widget _body() {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        children: [
-          _professionalInfo(),
-        ],
-      ),
+  Widget _body(){
+    return Padding(padding: const EdgeInsets.all(16.0),
+    child: Column(
+      children: [
+        _personalInfo()
+      ],
+    ),
     );
   }
-
-  Widget _professionalInfo() {
+  Widget _personalInfo(){
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -81,7 +77,7 @@ class ScreenProfessionalInfo extends StatelessWidget {
                     width: 8.0,
                   ),
                   Text(
-                    "Professional Information",
+                    "Personal Details",
                     style: Get.textTheme.bodyMedium!.copyWith(
                         fontSize: font12, fontWeight: FontWeight.w500),
                   ),
@@ -92,7 +88,7 @@ class ScreenProfessionalInfo extends StatelessWidget {
                 color: Colors.amber,
               ),
               Text(
-                "Designation",
+                "Date of Birth",
                 style: Get.textTheme.bodyMedium!
                     .copyWith(fontSize: font10, color: Colors.grey),
               ),
@@ -129,7 +125,7 @@ class ScreenProfessionalInfo extends StatelessWidget {
                 color: Colors.amber,
               ),
               Text(
-                "Total Experience",
+                "Gender",
                 style: Get.textTheme.bodyMedium!
                     .copyWith(fontSize: font10, color: Colors.grey),
               ),
@@ -165,7 +161,7 @@ class ScreenProfessionalInfo extends StatelessWidget {
                 color: Colors.amber,
               ),
               Text(
-                "Skills",
+                "Blood Group",
                 style: Get.textTheme.bodyMedium!
                     .copyWith(fontSize: font10, color: Colors.grey),
               ),
@@ -200,7 +196,7 @@ class ScreenProfessionalInfo extends StatelessWidget {
                 color: Colors.amber,
               ),
               Text(
-                "Joining Date",
+                "Personal Email",
                 style: Get.textTheme.bodyMedium!
                     .copyWith(fontSize: font10, color: Colors.grey),
               ),
@@ -236,7 +232,7 @@ class ScreenProfessionalInfo extends StatelessWidget {
                 color: Colors.amber,
               ),
               Text(
-                "Experience in TYS",
+                "Address",
                 style: Get.textTheme.bodyMedium!
                     .copyWith(fontSize: font10, color: Colors.grey),
               ),
@@ -271,53 +267,6 @@ class ScreenProfessionalInfo extends StatelessWidget {
           ),
         )
       ],
-    );
-  }
-
-  Widget _bottomSocialIcons() {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 10.0),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            "FOLLOW US ON",
-            style: Get.textTheme.bodyMedium!.copyWith(
-              fontSize: font14,
-              color: Colors.grey.shade700,
-            ),
-          ),
-          const SizedBox(height: 10),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image(
-                height: 24,
-                width: 24,
-                image: AssetImage('assets/images/instagram.png'),
-              ),
-              SizedBox(width: 16),
-              Image(
-                height: 24,
-                width: 24,
-                image: AssetImage('assets/images/linkedin.png'),
-              ),
-              SizedBox(width: 16),
-              Image(
-                height: 24,
-                width: 24,
-                image: AssetImage('assets/images/facebook.png'),
-              ),
-              SizedBox(width: 16),
-              Image(
-                height: 24,
-                width: 24,
-                image: AssetImage('assets/images/twitter.png'),
-              ),
-            ],
-          ),
-        ],
-      ),
     );
   }
 }

@@ -11,4 +11,9 @@ class Init extends GetxService {
   var skillName = ''.obs;
   var joinDate = ''.obs;
   var expInTYS = ''.obs;
+  var dobEmployee = ''.obs;
+  var genderEmployee = ''.obs;
+  var bloodGroup = ''.obs;
+  var personalEmail = ''.obs;
+  var addressEmployee = ''.obs;
 }

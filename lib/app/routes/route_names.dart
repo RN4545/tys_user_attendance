@@ -10,12 +10,13 @@ abstract class RouteNames {
   static const leaveBalance = '/applyLeaveBalance';
   static const resignation = '/resignation_screen';
   static const listOfHolidays = '/listHoliday_screen';
-  static const profile= '/profile_screen';
-  static const screenIdCard= '/screen_id_card';
-  static const screenSplash= '/screen_splash';
+  static const profile = '/profile_screen';
+  static const screenIdCard = '/screen_id_card';
+  static const screenSplash = '/screen_splash';
   static const screenRegularize = '/screen_regularize';
   static const screenContactInfo = '/screen_contact_info';
   static const screenContactInfoEdit = '/screen_contact_info_edit';
   static const screenProfessionalInfo = '/screen_professional_info';
   static const screenProfessionalInfoEdit = '/screen_professional_info_edit';
+  static const screenPersonalInfo = '/screen_personal_info';
 }

@@ -45,6 +45,9 @@ class ScreenProfileController extends GetxController {
       case "Professional":
         Get.toNamed(RouteNames.screenProfessionalInfo);
         break;
+      case "Personal":
+        Get.toNamed(RouteNames.screenPersonalInfo);
+        break;
       default:
         Center(
           child: Text(
