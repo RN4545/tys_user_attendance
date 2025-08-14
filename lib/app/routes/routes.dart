@@ -16,6 +16,7 @@ import 'package:tys_user_attendance/app/modules/screen_leave_request_module/scre
 import 'package:tys_user_attendance/app/modules/screen_login_module/screen_login.dart';
 import 'package:tys_user_attendance/app/modules/screen_personal_info/screen_personal_info.dart';
 import 'package:tys_user_attendance/app/modules/screen_personal_info/screen_personal_info_bindings.dart';
+import 'package:tys_user_attendance/app/modules/screen_personal_info_edit/screen_personal_info_edit.dart';
 import 'package:tys_user_attendance/app/modules/screen_professional_info/screen_professional_info_bindigs.dart';
 import 'package:tys_user_attendance/app/modules/screen_professional_info_edit/screen_professional_info_edit.dart';
 import 'package:tys_user_attendance/app/modules/screen_profile_module/screen_profile_bindings.dart';
@@ -36,6 +37,7 @@ import '../modules/screen_home_module/screen_home_bindings.dart';
 import '../modules/screen_leave_balance_module/screen_leave_balance.dart';
 import '../modules/screen_leave_balance_module/screen_leave_balance_bindings.dart';
 import '../modules/screen_login_module/screen_login_bindings.dart';
+import '../modules/screen_personal_info_edit/screen_personal_info_edit_bindings.dart';
 import '../modules/screen_professional_info/screen_professional_info.dart';
 import '../modules/screen_professional_info_edit/screen_professional_info_edit_bindings.dart';
 import '../modules/screen_profile_module/screen_profile.dart';
@@ -140,5 +142,9 @@ class AppPages {
         name: RouteNames.screenPersonalInfo,
         page: () => const ScreenPersonalInfo(),
         binding: ScreenPersonalInfoBindings()),
+    GetPage(
+        name: RouteNames.screenPersonalInfoEdit,
+        page: () => const ScreenPersonalInfoEdit(),
+        binding: ScreenPersonalInfoEditBindings()),
   ];
 }

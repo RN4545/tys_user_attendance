@@ -19,4 +19,5 @@ abstract class RouteNames {
   static const screenProfessionalInfo = '/screen_professional_info';
   static const screenProfessionalInfoEdit = '/screen_professional_info_edit';
   static const screenPersonalInfo = '/screen_personal_info';
+  static const screenPersonalInfoEdit = '/screen_personal_info_edit';
 }

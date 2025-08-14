@@ -19,18 +19,20 @@ class ScreenPersonalInfo extends StatelessWidget {
         ),
       ),
       body: _body(),
+      bottomNavigationBar: _bottomSocialIcons(),
     );
   }
-  Widget _body(){
-    return Padding(padding: const EdgeInsets.all(16.0),
-    child: Column(
-      children: [
-        _personalInfo()
-      ],
-    ),
+
+  Widget _body() {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        children: [_personalInfo()],
+      ),
     );
   }
-  Widget _personalInfo(){
+
+  Widget _personalInfo() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -100,7 +102,7 @@ class ScreenPersonalInfo extends StatelessWidget {
                 children: [
                   Obx(() {
                     return Text(
-                      Init.instance.designationName.value,
+                      Init.instance.dobEmployee.value,
                       // "UI/UX Intern",
                       // "jackbrown@gmail.com",
                       // Init.instance.emailContact.value,
@@ -110,7 +112,7 @@ class ScreenPersonalInfo extends StatelessWidget {
                   }),
                   InkWell(
                     onTap: () {
-                      Get.toNamed(RouteNames.screenProfessionalInfoEdit);
+                      Get.toNamed(RouteNames.screenPersonalInfoEdit);
                     },
                     child: Image.asset(
                       "assets/images/edit_icon.png",
@@ -137,7 +139,7 @@ class ScreenPersonalInfo extends StatelessWidget {
                 children: [
                   Obx(() {
                     return Text(
-                      Init.instance.totalExp.value,
+                      Init.instance.genderEmployee.value,
                       // "0 Years 0 Months",
                       // Init.instance.mobileContact.value,
                       style: Get.textTheme.bodyMedium!.copyWith(
@@ -146,7 +148,7 @@ class ScreenPersonalInfo extends StatelessWidget {
                   }),
                   InkWell(
                     onTap: () {
-                      Get.toNamed(RouteNames.screenProfessionalInfoEdit);
+                      Get.toNamed(RouteNames.screenPersonalInfoEdit);
                     },
                     child: Image.asset(
                       "assets/images/edit_icon.png",
@@ -173,7 +175,7 @@ class ScreenPersonalInfo extends StatelessWidget {
                 children: [
                   Obx(() {
                     return Text(
-                      Init.instance.skillName.value,
+                      Init.instance.bloodGroup.value,
                       // Init.instance.mobileContact.value,
                       style: Get.textTheme.bodyMedium!.copyWith(
                           fontSize: font12, fontWeight: FontWeight.bold),
@@ -181,7 +183,7 @@ class ScreenPersonalInfo extends StatelessWidget {
                   }),
                   InkWell(
                     onTap: () {
-                      Get.toNamed(RouteNames.screenProfessionalInfoEdit);
+                      Get.toNamed(RouteNames.screenPersonalInfoEdit);
                     },
                     child: Image.asset(
                       "assets/images/edit_icon.png",
@@ -208,7 +210,7 @@ class ScreenPersonalInfo extends StatelessWidget {
                 children: [
                   Obx(() {
                     return Text(
-                      Init.instance.joinDate.value,
+                      Init.instance.personalEmail.value,
 
                       // Init.instance.mobileContact.value,
                       style: Get.textTheme.bodyMedium!.copyWith(
@@ -217,7 +219,7 @@ class ScreenPersonalInfo extends StatelessWidget {
                   }),
                   InkWell(
                     onTap: () {
-                      Get.toNamed(RouteNames.screenProfessionalInfoEdit);
+                      Get.toNamed(RouteNames.screenPersonalInfoEdit);
                     },
                     child: Image.asset(
                       "assets/images/edit_icon.png",
@@ -244,7 +246,7 @@ class ScreenPersonalInfo extends StatelessWidget {
                 children: [
                   Obx(() {
                     return Text(
-                      Init.instance.expInTYS.value,
+                      Init.instance.addressEmployee.value,
 
                       // Init.instance.mobileContact.value,
                       style: Get.textTheme.bodyMedium!.copyWith(
@@ -253,7 +255,7 @@ class ScreenPersonalInfo extends StatelessWidget {
                   }),
                   InkWell(
                     onTap: () {
-                      Get.toNamed(RouteNames.screenProfessionalInfoEdit);
+                      Get.toNamed(RouteNames.screenPersonalInfoEdit);
                     },
                     child: Image.asset(
                       "assets/images/edit_icon.png",
@@ -267,6 +269,53 @@ class ScreenPersonalInfo extends StatelessWidget {
           ),
         )
       ],
+    );
+  }
+
+  Widget _bottomSocialIcons() {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            "FOLLOW US ON",
+            style: Get.textTheme.bodyMedium!.copyWith(
+              fontSize: font14,
+              color: Colors.grey.shade700,
+            ),
+          ),
+          const SizedBox(height: 10),
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image(
+                height: 24,
+                width: 24,
+                image: AssetImage('assets/images/instagram.png'),
+              ),
+              SizedBox(width: 16),
+              Image(
+                height: 24,
+                width: 24,
+                image: AssetImage('assets/images/linkedin.png'),
+              ),
+              SizedBox(width: 16),
+              Image(
+                height: 24,
+                width: 24,
+                image: AssetImage('assets/images/facebook.png'),
+              ),
+              SizedBox(width: 16),
+              Image(
+                height: 24,
+                width: 24,
+                image: AssetImage('assets/images/twitter.png'),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
